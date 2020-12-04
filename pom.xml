@@ -7,6 +7,10 @@
     <groupId>org.example</groupId>
     <artifactId>Training</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -49,6 +53,40 @@
             <version>2.3.5.RELEASE</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.danielflower.mavenplugins</groupId>
+                <artifactId>gitlog-maven-plugin</artifactId>
+                <version>1.13.17</version>
+                <configuration>
+                    <outputDirectory>src/main/resources</outputDirectory>
+                    <generateSimpleHTMLChangeLog>false</generateSimpleHTMLChangeLog>
+                    <generateJSONChangeLog>false</generateJSONChangeLog>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <phase>install</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <scm>
+        <developerConnection>scm:svn:https://github.com/Vladyslav94/Training/</developerConnection>
+    </scm>
+
+
 
 
 </project>
