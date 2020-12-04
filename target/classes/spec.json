@@ -1,0 +1,32 @@
+[
+  {
+    "operation": "modify-overwrite-beta",
+    "spec": {
+      "transactions": {
+        "*": {
+          "tenderItems": {
+            "*": {
+              "accountNumber": "=toString(@(1,lastFour))"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "operation": "remove",
+    "spec": {
+      "transactions": {
+        "*": {
+          "tenderItems": {
+            "*": {
+              "_*": "",
+              "lastFour": ""
+            },
+            "_*": ""
+          }
+        }
+      }
+    }
+  }
+]
